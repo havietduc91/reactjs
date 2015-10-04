@@ -40,6 +40,7 @@
         */
 
        // introduction-to-properties
+       /**
         var App = React.createClass({
             getDefaultProps : function(){
                 return  {
@@ -63,6 +64,33 @@
         });
 
         React.render(<App cat={5}/>, document.body);
+        */
+        //state-basics
+        var App = React.createClass({
+            getInitialState : function()
+            {
+                return {
+                    txt : 'this is state'
+                }
+            },
+            update : function(e){
+                this.setState({
+                    txt : e.target.value
+                });
+            },
+            render:function() {
+                var txt = this.state.txt;
+                return (
+                    <div>
+                        <input type='text' onChange={this.update} />
+                        <b> BOLD </b>
+                        <h1> {txt} </h1>
+                    </div>
+                )
+            }
+        });
+
+        React.render(<App txt='this is prop text'/>, document.body);
     </script>
 </body>
 <!-- BODY -->
