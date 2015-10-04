@@ -1,0 +1,97 @@
+html {
+    background-color: #ff5c04;
+}
+/**************HEADER*************************/
+.header .navbar {
+    background-color: #FFF;
+    min-height: auto;
+    text-align: center;
+    color: #ff5e07;
+    padding: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+.page-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF;
+    border-bottom: 1px solid #FFF;
+}
+/**************END HEADER*************************/
+/**************BODY CONTENT*************************/
+body {
+    background-color: #ff5c04;
+}
+.body-content {
+    padding: 9px;
+}
+/**************END BODY CONTENT*************************/
+/**************FOOTER*************************/
+.footer .navbar {
+    color: #FFF;
+    min-height: auto;
+}
+.footer ul {
+    margin: 0px;
+    padding: 0px;
+}
+.footer-li {
+    width: 19%;
+    display: inline-block;
+    text-align: center;
+    border-left: 1px solid #3f3f3f;
+    border-top: 1px solid #3f3f3f;
+}
+.footer-li .item-content {
+    padding: 5px;
+}
+.footer-li.first {
+    border-left: transparent;
+}
+.footer-li i {
+    display: block;
+}
+/**************END FOOTER*************************/
+/**************CATEGORIES*************************/
+.categories .category {
+    background-color: #FFF;
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+}
+.categories .category.active {
+    background-color: #ffb6c1;
+}
+.categoty-title {
+    float: left;
+}
+.categoty-title i,
+.categoty-title h4,
+.categoty-description h5
+{
+    float: left;
+}
+.categories .category .icon,
+.categories .category .category-content {
+    float: left;
+}
+.categories .category .icon {
+    font-weight: bold;
+    color: #ff5c04;
+    border-right: 1px solid #ff5c04;
+    padding-right: 12px;
+}
+.categories .category .categoty-description {
+    padding-top: 12px;
+}
+.categories .category .categoty-description .icon,
+.categories .category .categoty-description .category-content {
+    padding-top: 0px;
+}
+.categories .category .category-content {
+    font-weight: bold;
+    padding-left: 12px;
+}
+/**************END CATEGORIES*************************/
