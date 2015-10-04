@@ -12,8 +12,9 @@
 
 <!-- BODY -->
 <body>
-<!-- HELLO WOLRD
     <script type="text/jsx">
+        //HELLO WOLRD
+        /**
         var App = React.createClass({
             render:function() {
                 return <h1> Hello World </h1>
@@ -21,9 +22,9 @@
         });
 
         React.render(<App />, document.body);
-    </script>
--->
-    <script type="text/jsx">
+        */
+        //HELLO WOLRD && BOLD
+        /**
         var App = React.createClass({
             render:function() {
                 return (
@@ -36,6 +37,32 @@
         });
 
         React.render(<App />, document.body);
+        */
+
+       // introduction-to-properties
+        var App = React.createClass({
+            getDefaultProps : function(){
+                return  {
+                    txt : 'this is default prop text',
+                    cat : 0
+                }
+            },
+            propTypes: {
+                txt : React.PropTypes.string,
+                cat : React.PropTypes.number.isRequired
+            },
+            render:function() {
+                var txt = this.props.txt;
+                return (
+                    <div>
+                        <b> BOLD </b>
+                        <h1> {txt} </h1>
+                    </div>
+                )
+            }
+        });
+
+        React.render(<App cat={5}/>, document.body);
     </script>
 </body>
 <!-- BODY -->
