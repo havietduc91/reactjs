@@ -91,7 +91,7 @@
         });
 
         React.render(<App txt='this is prop text'/>, document.body);
-        */
+
         var App = React.createClass({
             getInitialState : function()
             {
@@ -108,6 +108,10 @@
                 var txt = this.state.txt;
                 return (
                     <div>
+                        <Widget txt={this.state.txt} update={this.update} />
+                        <Widget txt={this.state.txt} update={this.update} />
+                        <Widget txt={this.state.txt} update={this.update} />
+                        <Widget txt={this.state.txt} update={this.update} />
                         <Widget txt={this.state.txt} update={this.update} />
                     </div>
                 )
@@ -128,6 +132,50 @@
         });
 
         React.render(<App txt='this is prop text'/>, document.body);
+        */
+
+        var App = React.createClass({
+            getInitialState : function()
+            {
+                return {
+                    red: 0,
+                    green: 0,
+                    blue: 0
+                }
+            },
+            update : function(){
+                this.setState({
+                    red: this.refs.red.refs.inp.getDOMNode().value,
+                    green: this.refs.green.refs.inp.getDOMNode().value,
+                    blue: this.refs.blue.refs.inp.getDOMNode().value,
+                });
+            },
+            render:function() {
+                var txt = this.state.txt;
+                return (
+                    <div>
+                        <Slider ref='red' update={this.update} />
+                        <label> {this.state.red} </label>
+                        <Slider ref='green' update={this.update} />
+                        <label> {this.state.green} </label>
+                        <Slider ref='blue' update={this.update} />
+                        <label> {this.state.blue} </label>
+                    </div>
+                )
+            }
+        });
+
+        var Slider = React.createClass({
+            render:function() {
+                return (
+                    <div>
+                        <input ref='inp' type='range' min='0' max='255' onChange={this.props.update} />
+                    </div>
+                )
+            }
+        });
+
+        React.render(<App />, document.body);
     </script>
 </body>
 <!-- BODY -->
