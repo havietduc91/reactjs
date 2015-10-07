@@ -3,10 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Demo ReactJS</title>
+    <link rel="stylesheet"  href="bootstrap-3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet"  href="bootstrap-3.3.5/css/bootstrap-theme.min.css">
 
     <script src="js/reactjs-0.12.2.js"></script>
     <script src="js/JSXTransformer-0.12.2.js"></script>
-
+    <style>
+        body {
+            margin: 25px;
+        }
+    </style>
 </head>
 <!-- /HEADER -->
 
@@ -133,7 +139,7 @@
 
         React.render(<App txt='this is prop text'/>, document.body);
         */
-
+        /*
         var App = React.createClass({
             getInitialState : function()
             {
@@ -173,6 +179,51 @@
                     </div>
                 )
             }
+        });
+
+        React.render(<App />, document.body);
+        var App = React.createClass({
+            render : function() {
+                return <Button> I <Heart /> React </Button>
+            }
+        });
+
+        var Button = React.createClass({
+            render : function() {
+                return <button> {this.props.children} </button>
+            }
+        });
+
+        var Heart = React.createClass({
+            render : function() {
+                return <span className='glyphicon glyphicon-heart'></span>
+            }
+
+        });
+        */
+        var App = React.createClass({
+            render : function() {
+                return (
+                    <div>
+                        <Button href='javascript:alert("hello")'className='btn-primary'> <BIcon className='glyphicon-heart '/> Button </Button>
+                        <Button className='btn-info'> <BIcon className='glyphicon-home'/> Button </Button>
+                        <Button className='btn-success'> <BIcon className='glyphicon-music '/> Button </Button>
+                    </div>
+                )
+            }
+        });
+
+        var Button = React.createClass({
+            render : function() {
+                return this.transferPropsTo(<a className='btn'> {this.props.children} </a>)
+            }
+        });
+
+        var BIcon = React.createClass({
+            render : function() {
+                return this.transferPropsTo(<span className='glyphicon'></span>)
+            }
+
         });
 
         React.render(<App />, document.body);
