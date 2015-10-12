@@ -181,6 +181,7 @@
             }
         });
 
+        //Accessing child properties
         React.render(<App />, document.body);
         var App = React.createClass({
             render : function() {
@@ -201,6 +202,7 @@
 
         });
         */
+        /*
         var App = React.createClass({
             render : function() {
                 return (
@@ -224,6 +226,83 @@
                 return this.transferPropsTo(<span className='glyphicon'></span>)
             }
 
+        });
+
+        React.render(<App />, document.body);
+
+        //React Fundamentals: Component Lifecycle - Mounting Basics
+
+        var Button = React.createClass({
+            getInitialState: function(){
+                return {val: 0}
+            },
+            update : function(){
+                this.setState({val: this.state.val + 1})
+            },
+            componentWithMount: function(){
+                console.log('Mounting');
+            },
+            render: function(){
+                console.log('rendering');
+                return <button onClick={this.update}>{this.state.val}</button>
+            },
+            componentDidMount: function(){
+                console.log('mounted');
+            }
+        });
+        */
+        //React Fundamentals: Component Lifecycle - Updating
+        /*
+        var Button = React.createClass({
+            update: function(){
+                this.setProps({val: this.props.val + 1})
+            },
+            render: function(){
+                return <button onClick={this.udpate}>{this.props.val}</button>
+            }
+        });
+        React.render(<Button val={0}/>, document.body);
+        */
+
+        var ReactMixins = {
+            getInitialState: function(){
+                return {count: 0}
+            },
+            componentWillMount: function(){
+                console.log('will mount');
+            },
+            incrementCount: function(){
+                this.setState({count: this.state.count + 1})
+            }
+        }
+
+        var App = React.createClass({
+            render: function(){
+                return (
+                    <div>
+                        <Button txt='this is the button'/>
+                        <br/>
+                        <Label txt='this is the label'/>
+                    </div>
+                )
+            }
+        });
+
+        var Button = React.createClass({
+            mixins: [ReactMixins],
+            render: function(){
+                return <button onClick={this.incrementCount}> {this.props.txt} - {this.state.count}</button>
+            }
+        });
+
+        var Label = React.createClass({
+            mixins: [ReactMixins],
+            componentWillMount: function(){
+                setInterval(this.incrementCount, 1000)
+            },
+            render: function(){
+                return <label> {this.props.txt}- {this.state.count}</label>
+            }
         });
 
         React.render(<App />, document.body);
