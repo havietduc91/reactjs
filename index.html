@@ -264,6 +264,7 @@
         React.render(<Button val={0}/>, document.body);
         */
 
+        /*
         var ReactMixins = {
             getInitialState: function(){
                 return {count: 0}
@@ -306,6 +307,46 @@
         });
 
         React.render(<App />, document.body);
+        */
+        //React Fundamentals: Dynamically Generated Components
+        var PersonTable = React.createClass({
+            getInitialState: function(){
+                return {
+                    data: [
+                        {id: 1, name: 'name1', lname: 'lname1'},
+                        {id: 2, name: 'name2', lname: 'lname2'},
+                        {id: 3, name: 'name3', lname: 'lname3'},
+                        {id: 4, name: 'name4', lname: 'lname4'},
+                        {id: 5, name: 'name5', lname: 'lname5'},
+                        {id: 6, name: 'name6', lname: 'lname6'},
+                        {id: 7, name: 'name7', lname: 'lname7'},
+                        {id: 8, name: 'name8', lname: 'lname8'},
+                        {id: 9, name: 'name9', lname: 'lname9'},
+                    ]
+                }
+            },
+
+            render: function(){
+                var rows = this.state.data.map(function(person, i){
+                    return <PersonRow data={person} key={i}/>
+                })
+                return <table> {rows} </table>
+            }
+        });
+
+        var PersonRow = React.createClass({
+            render: function(){
+                return (
+                    <tr>
+                        <td>{this.props.data.id}</td>
+                        <td>{this.props.data.name}</td>
+                        <td>{this.props.data.lname}</td>
+                    </tr>
+                )
+            }
+        });
+
+        React.render(<PersonTable />, document.body);
     </script>
 </body>
 <!-- BODY -->
